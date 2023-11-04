@@ -1,4 +1,11 @@
-﻿@page "/Pedidos"
+﻿@page "/"
+
+@using AppDelivey.Maui.Models
+@using AppDelivey.Maui.Service
+
+@inject IPedidosService service
+@inject NavigationManager NavigationManager
+
 <head>
     <link rel="stylesheet" href="~/css/" />
     <style>
@@ -12,203 +19,76 @@
     <h3 class="pato">Pedidos Monkey</h3>
 
 </div>
-@* <MudImage Class="rounded" Src="https://img.freepik.com/vector-premium/chef-chimpance-mono-panaderia-restaurante-cocina-dibujos-animados-mascota-personaje-logotipo-vector-icono-ilustracion_7688-4718.jpg?w=2000" Elevation="25" Width="100" />
- *@
+
 <img class="logo" src="https://img.freepik.com/vector-premium/chef-chimpance-mono-panaderia-restaurante-cocina-dibujos-animados-mascota-personaje-logotipo-vector-icono-ilustracion_7688-4718.jpg?w=2000" Height="140px" Width="140px" />
 
 <div class="btn-">
     <button class="btn-info" @onclick="ToggleMenuDos">
-        <img src="https://e7.pngegg.com/pngimages/833/426/png-clipart-shopping-cart-shopping-cart.png" width="60" />
+        <img src="https://e7.pngegg.com/pngimages/833/426/png-clipart-shopping-cart-shopping-cart.png" width="48" />
     </button>
-
-    @*     <button class="btn-danger" @onclick="ToggleMenu">
-    <div class="hamburger"></div>
-    <div class="hamburger"></div>
-    <div class="hamburger"></div>
-    </button> *@
     <ul class="menu-items1" style="display: @menuDisplay1">
-        <li><a href="#">title</a></li>
-        <li><a href="#">descripcion</a></li>
-        <li><a href="#">cantidad</a></li>
-        <li><a href="#">precio</a></li>
-        <li><a href="#">total</a></li>
+        @foreach (var item in carrito)
+        {
+            <li class="lista">
+                @item.Producto - Precio: @item.Precio - Cantidad: @item.Cantidad
+            </li>
+            // Calcular el subtotal para el elemento actual y agregarlo al total del carrito
+            decimal subtotal = item.Precio * item.Cantidad;
 
+            TotalCarritos = subtotal;
+        }
+        <li>Total del Carrito: @TotalCarritos</li>
     </ul>
 </div>
-
-
-@* <MudAvatar>
-    <MudImage Class="logoMono" Src="https://cdn6.f-cdn.com/contestentries/1727704/15147226/5e3ac761b888c_thumb900.jpg"Width="540"></MudImage>
-</MudAvatar> *@
 <br />
+@if (productos == null)
+{
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+}
+else
+{
+       <MudGrid Spacing="@spacing" Justify="Justify.Center">
 
+        @foreach (var AppPedidosMaui in productos)
+        {
+            <MudItem Class="btn-warning">
+                <p class="infoProducto">Producto: @AppPedidosMaui.Productos</p>
 
+                <img class="comidas" src="@AppPedidosMaui.imagen" alt="@AppPedidosMaui.imagen" Height="140px" Width="140px" />
+                <br />
+                <div style="width: 140px; height: 80px;">
 
+                                    <p>descripcion de producto: @AppPedidosMaui.Descripcion</p>
 
+                </div>
+                <div>
+                    <select name="select">
+                        <option value="value1">Pequeño</option>
+                        <option value="value2">Mediano</option>
+                        <option value="value2">Grande</option>
+                    </select>
+                </div>
+                <br />
+                <div>
+                    <input type="number" placeholder="Cantidad" class="btn-light" @bind="AppPedidosMaui.Cantidad" />
+
+              </div>
+                <br />
+                <p>precio: @AppPedidosMaui.Precio</p>
+
+                <button class="btn btn-outline-primary" @onclick="() => AgregarAlCarrito(AppPedidosMaui.Productos, Convert.ToDecimal(AppPedidosMaui.Cantidad), AppPedidosMaui.Precio, Convert.ToDecimal(AppPedidosMaui.Total))">Agregar a carrito</button>
+            </MudItem>
+        }
+    </MudGrid>
+}
 <br />
-@* <MudSlider @bind-Value="spacing" Min="0" Max="10" Color="Color.Dark" Class="mb-6">Spacing: @spacing.ToString()</MudSlider>
- *@
-<MudGrid Spacing="@spacing" Justify="Justify.Center">
-    <MudItem Class="btn-warning">
-        <img src="https://www.saborusa.com/ni/wp-content/uploads/sites/19/2019/11/Calma-tus-antojos-con-deliciosas-y-rapidas-recetas-Foto-destacada.png" Height="140px" Width="140px" />
-        <br />
-        <br />
-        <div style="width: 140px; height: 80px;" >
-            <p >
-                mjendneduncnrdnPI
-                drudnuenduendunePI
-                ccgvgvtvgvgvgtgfPI
-            </p>
-        </div>
-        <div>
-            <select name="select">
-                <option value="value1">Pequeño</option>
-                <option value="value2">Mediano</option>
-                <option value="value3">Grande</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <input type="number" placeholder="Cantidad" class="btn-light" />
-        </div>
-        <br />
-        <button class="btn btn-outline-primary">Agregar a carrito</button>
-    </MudItem>
-    <MudItem Class="btn-warning">
-        <img src="https://cdn2.cocinadelirante.com/sites/default/files/images/2023/08/receta-de-pastel-de-chocolate-facil.jpg" Height="140px" Width="140px" />
-        <br />
-        <br />
-        <div style="width: 140px; height: 80px;">
-            <p>
-                mjendneduncnrdnPI
-                drudnuenduendunePI
-                ccgvgvtvgvgvgtgfPI
-            </p>
-        </div>
-        <div>
-            <select name="select">
-                <option value="value1">Pequeño</option>
-                <option value="value2">Mediano</option>
-                <option value="value3">Grande</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <input type="number" placeholder="Cantidad" class="btn-light" />
-        </div>
-        <br />
-        <button class="btn btn-outline-primary">Agregar a carrito</button>
-    </MudItem>
-    <MudItem Class="btn-warning">
-        <img src="https://ds1e83w8pn0gs.cloudfront.net/fotosmultisite/502613-1.jpg" Height="140px" Width="140px" />
-        <br />
-        <br />
-        <div style="width: 140px; height: 80px;">
-            <p>
-                mjendneduncnrdnPI
-                drudnuenduendunePI
-                ccgvgvtvgvgvgtgfPI
-            </p>
-        </div>
-        <div>
-            <select name="select">
-                <option value="value1">Pequeño</option>
-                <option value="value2">Mediano</option>
-                <option value="value3">Grande</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <input type="number" placeholder="Cantidad" class="btn-light" />
-        </div>
-        <br />
-        <button class="btn btn-outline-primary">Agregar a carrito</button>
-    </MudItem>
-    <MudItem Class="btn-warning">
-        <img src="https://img.taste.com.au/w_-0kcUJ/taste/2016/11/aussie-style-beef-and-salad-tacos-86525-1.jpeg" Height="140px" Width="140px" />
-        <br />
-        <br />
-        <div style="width: 140px; height: 80px;">
-            <p>
-                mjendneduncnrdnPI
-                drudnuenduendunePI
-                ccgvgvtvgvgvgtgfPI
-            </p>
-        </div>
-        <div>
-            <select name="select">
-                <option value="value1">Pequeño</option>
-                <option value="value2">Mediano</option>
-                <option value="value3">Grande</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <input type="number" placeholder="Cantidad" class="btn-light" />
-        </div>
-        <br />
-        <button class="btn btn-outline-primary">Agregar a carrito</button>
-    </MudItem>
-    <MudItem Class="btn-warning">
-        <img src="https://www.foodandwine.com/thmb/Wd4lBRZz3X_8qBr69UOu2m7I2iw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/classic-cheese-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg" Height="140px" Width="140px" />
-        <br />
-        <br />
-        <div style="width: 140px; height: 80px;">
-            <p>
-                mjendneduncnrdnPI
-                drudnuenduendunePI
-                ccgvgvtvgvgvgtgfPI
-            </p>
-        </div>
-        <div>
-            <select name="select">
-                <option value="value1">Pequeño</option>
-                <option value="value2">Mediano</option>
-                <option value="value3">Grande</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <input type="number" placeholder="Cantidad" class="btn-light" />
-        </div>
-        <br />
-        <button class="btn btn-outline-primary">Agregar a carrito</button>
-    </MudItem>
-    <MudItem Class="btn-warning">
-        <img src="https://cdn.kiwilimon.com/brightcove/8626/8626.jpg" Height="140px" Width="140px" />
-        <br />
-        <br />
-        <div style="width: 140px; height: 80px;">
-            <p>
-                mjendneduncnrdnPI
-                drudnuenduendunePI
-                ccgvgvtvgvgvgtgfPI
-            </p>
-        </div>
-        <div>
-            <select name="select">
-                <option value="value1">Pequeño</option>
-                <option value="value2">Mediano</option>
-                <option value="value3">Grande</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <input type="number" placeholder="Cantidad" class="btn-light" />
-        </div>
-        <br />
-        <button class="btn btn-outline-primary">Agregar a carrito</button>
-    </MudItem>
-</MudGrid>
-
-
 @code {
     public int spacing { get; set; } = 2;
 
     private string menuDisplay = "none";
     private string menuDisplay1 = "none";
-
-
     private void ToggleMenu()
     {
         if (menuDisplay == "none")
@@ -231,5 +111,47 @@
             menuDisplay1 = "none";
         }
     }
+    //-----------------------------------------
+    private List<AppPedidosMaui> productos;
+    private bool actualizado = false;
+    private bool eliminado = false;
+    private string newname;
 
+    protected override async Task OnInitializedAsync()
+    {
+        productos = await service.Get();
+    }
+    //----------------------------------------
+    List<CarritoItem> carrito = new List<CarritoItem>();
+    void AgregarAlCarrito(string producto, decimal cantidad, decimal precio, decimal total)
+    {
+        carrito.Add(new CarritoItem
+            {
+                Producto = producto,
+                Cantidad = cantidad,
+                Precio = precio,
+                Total = total
+            });
+    }
+    public class CarritoItem
+    {
+        public string Producto { get; set; }
+        public decimal Cantidad { get; set; }
+        public decimal Precio { get; set; }
+        public decimal Total { get; set; }
+    }
+    decimal TotalCarrito
+    {
+        get
+        {
+            return carrito.Sum(item => item.Total);
+        }
+    }
+    //-------------------------------
+    decimal TotalCarritos = 0;
+
+    void MostrarCarrito()
+    {
+        NavigationManager.NavigateTo("/admin");
+    }
 }

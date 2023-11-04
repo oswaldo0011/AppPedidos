@@ -25,6 +25,8 @@ C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Localization.dll
+C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Debug.dll
@@ -48,6 +50,7 @@ C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.System.Projection.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.Widgets.Projection.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll
+C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\MudBlazor.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\System.IO.Pipelines.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Graphics.Canvas.dll
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.WindowsAppRuntime.Bootstrap.dll
@@ -350,6 +353,3 @@ C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\obj\Debug
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
-C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Localization.dll
-C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Localization.Abstractions.dll
-C:\Users\oswal\OneDrive\Documentos\forVS\PedidosMonkey\AppDelivey.Maui\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\MudBlazor.dll

@@ -1,6 +1,8 @@
 ﻿using AppDelivey.Maui.Data;
+using AppDelivey.Maui.Service;
 using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
+using AppDelivey.Maui.Service;
 
 
 namespace AppDelivey.Maui
@@ -19,6 +21,8 @@ namespace AppDelivey.Maui
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddMudServices();
+            builder.Services.AddSingleton<IPedidosService, PedidosService>();
+            //builder.Services.AddSingleton<IMostarPedidoServ, MostrarPedidosService>();
 
 
 #if DEBUG

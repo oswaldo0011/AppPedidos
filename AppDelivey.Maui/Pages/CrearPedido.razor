@@ -1,0 +1,36 @@
+﻿@page "/crearPedidos"
+
+@using AppDelivey.Maui.Models
+@using AppDelivey.Maui.Service
+
+@inject IMostarPedidoServ service
+
+<h4>CrearPedido</h4>
+
+@* <form @onsubmit="CreateCategoria">
+    <div class="form-group">
+        <label for="nombre">Nomber</label>
+        <input id="nombre" type="text" class="form-control" @bind="nombreCategoria" />
+    </div>
+    <div class="form-group">
+        <label for="imagen">imagen:</label>
+        <input id="imagen" type="text" class="form-control" @bind="imagenCategoria" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-primary">Crear Categoria</button>
+</form> *@
+
+@code {
+    // private string nombreCategoria = "";
+    // private string imagenCategoria = "";
+
+    // private async Task CreateCategoria()
+    // {
+    //     var nuevaCategoria = new Categoria
+    //         {
+    //             name = nombreCategoria,
+    //             image = imagenCategoria
+    //         };
+    //     await service.CreateCategory(nuevaCategoria);
+    // }
+}

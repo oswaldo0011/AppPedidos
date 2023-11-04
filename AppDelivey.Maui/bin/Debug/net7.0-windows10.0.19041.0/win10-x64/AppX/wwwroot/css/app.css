@@ -4,17 +4,41 @@
 .pato {
     color: rebeccapurple;
 }
-.logo{
+.logo {
     border-radius: 100%;
-
+    background-color: #F5214B;
+}
+.comidas{
+    border-radius:16px;
+}
+.btn-warning{
+    width:-30px;
+}
+.picture {
+    border-radius: 16px;
+}
+.infoProducto{
+    display:block;
 }
 .franja {
     background-color: #FFC913;
-    text-align:center;
+    text-align: center;
 }
-.btn-info{
-    margin-left:200px;
-    margin-top:-190px;
+.btnEnviar{
+    background-color:burlywood;
+    font-size:15px;
+    padding:10px;
+    border-radius:13px;
+}
+
+.btn-info {
+    margin-left: 89%;
+    margin-top: -190px;
+    width: -20px;
+}
+.lista{
+    color:darkslategray;
+    font-size:17px;
 }
 .menu-items1 {
     background-color: #B5B7D9;

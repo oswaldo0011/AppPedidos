@@ -1,8 +1,31 @@
 ﻿@page "/admin"
 
+@using AppDelivey.Maui.Models
+@using AppDelivey.Maui.Service
+@using static AppDelivey.Maui.Pages.Pedidos
 
 <h3>Administrador</h3>
 
-@code {
 
+
+<ul>
+    @foreach (var item in carrito)
+    {
+        <li>@item.Producto - Precio: @item.Precio - Cantidad: @item.Cantidad</li>
+    }
+</ul>
+
+<p>Total del Carrito: @TotalCarrito</p>
+
+@code {
+    [Parameter]
+    public List<CarritoItem> carrito { get; set; }
+
+    decimal TotalCarrito
+    {
+        get
+        {
+            return carrito.Sum(item => item.Total);
+        }
+    }
 }
